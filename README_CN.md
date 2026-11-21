@@ -41,11 +41,3 @@
 _即将到来_
 
 ~~这似冯modrinth审核能不能快点~~
-
-## 项目结构
-
-- `common/` —— 与版本无关的核心代码：配置、断线界面、粒子、音效注册和共享资源。
-  它按照最老的受支持版本 Minecraft 26.1.2 编译，因此不会误用只有 26.2 才有的 API。
-- `26.1/`、`26.2/` —— 加载器粘合层。每个子项目自带对应版本的 `fabric.mod.json`、
-  access widener、mixin 配置和切换界面的 mixin（26.2 注入 `Gui#setScreen`，
-  26.1 注入 `Minecraft#setScreen`），并把 common 的类和资源一起打进自己的 jar。

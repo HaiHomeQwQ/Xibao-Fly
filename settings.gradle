@@ -9,5 +9,9 @@ pluginManagement {
 	}
 }
 
-// Should match your modid
 rootProject.name = 'xibao-fly'
+
+// The common core plus one project per game API generation.
+include 'common'
+include '26.1'
+include '26.2'

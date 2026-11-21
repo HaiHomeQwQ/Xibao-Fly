@@ -1,34 +1,40 @@
 package cn.yuang2714.xibaofly.client;
 
-import cn.yuang2714.xibaofly.client.config.FileBasedConfig;
-import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.sounds.Music;
-import net.minecraft.sounds.SoundEvent;
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import cn.yuang2714.xibaofly.client.config.FileBasedConfig;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.Identifier;
+import net.minecraft.sounds.Music;
+import net.minecraft.sounds.SoundEvent;
 
-public class XibaoFlyClient implements ClientModInitializer {
+/**
+ * Version-independent client setup: config bootstrap, sound registration and the BGM
+ * handles. Each version project's {@code ClientModInitializer} calls
+ * {@link #initClient()}; this class contains no loader entrypoint of its own.
+ */
+public final class XibaoCore {
     public static final String MOD_ID = "xibao-fly";
     public static final Logger LOGGER = LoggerFactory.getLogger("XibaoFly");
     public static Music xibao;
     public static Music beibao;
-    
-	@Override
-	public void onInitializeClient() {
-		LOGGER.info("initializing xibao-fly");
+
+    private XibaoCore() {
+    }
+
+    public static void initClient() {
+        LOGGER.info("initializing xibao-fly");
         try {
             FileBasedConfig.write(FileBasedConfig.read());
         } catch (IOException e) {
             throw new IllegalStateException("Failed to initialize config system.", e);
         }
-        
-        
+
         SoundEvent xibaoEvent = Registry.register(
                 BuiltInRegistries.SOUND_EVENT,
                 Identifier.fromNamespaceAndPath(MOD_ID, "bgm.xibao"),
@@ -36,13 +42,13 @@ public class XibaoFlyClient implements ClientModInitializer {
                         Identifier.fromNamespaceAndPath(MOD_ID, "bgm.xibao")
                 )
         );
-        XibaoFlyClient.xibao = new Music(
+        XibaoCore.xibao = new Music(
                 Holder.direct(xibaoEvent),
                 0,
                 0,
                 true
         );
-        
+
         SoundEvent beibaoEvent = Registry.register(
                 BuiltInRegistries.SOUND_EVENT,
                 Identifier.fromNamespaceAndPath(MOD_ID, "bgm.beibao"),
@@ -50,7 +56,7 @@ public class XibaoFlyClient implements ClientModInitializer {
                         Identifier.fromNamespaceAndPath(MOD_ID, "bgm.beibao")
                 )
         );
-        XibaoFlyClient.beibao = new Music(
+        XibaoCore.beibao = new Music(
                 Holder.direct(beibaoEvent),
                 0,
                 0,

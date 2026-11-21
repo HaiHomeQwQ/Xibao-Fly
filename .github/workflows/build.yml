@@ -33,4 +33,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: Artifacts
-          path: build/libs/
+          path: |
+            26.1/build/libs/*.jar
+            26.2/build/libs/*.jar
+            !**/*-sources.jar

@@ -27,8 +27,8 @@ public class XibaoDisconnectedScreen extends DisconnectedScreen {
                 "textures/backgrounds/" + FileBasedConfig.get("stage", "xibao") + ".png"
         );
         bgm = switch (FileBasedConfig.get("stage", "xibao")) {
-            case "beibao" -> XibaoFlyClient.beibao;
-            case "xibao" -> XibaoFlyClient.xibao;
+            case "beibao" -> XibaoCore.beibao;
+            case "xibao" -> XibaoCore.xibao;
             default -> throw new NullPointerException("Cannot get BGM!");
         };
         showParticles = FileBasedConfig.get("particles", "false").equals("true");
@@ -131,11 +131,11 @@ public class XibaoDisconnectedScreen extends DisconnectedScreen {
     private static void initParticles(int width, int height) {
         Identifier[] particleTextures = switch (FileBasedConfig.get("stage", "xibao")) {
             case "xibao" -> new Identifier[] {
-                    Identifier.fromNamespaceAndPath(XibaoFlyClient.MOD_ID, "textures/particles/red_snow.png"),
-                    Identifier.fromNamespaceAndPath(XibaoFlyClient.MOD_ID, "textures/particles/yellow_snow.png"),
+                    Identifier.fromNamespaceAndPath(XibaoCore.MOD_ID, "textures/particles/red_snow.png"),
+                    Identifier.fromNamespaceAndPath(XibaoCore.MOD_ID, "textures/particles/yellow_snow.png"),
             };
             case "beibao" -> new Identifier[] {
-                    Identifier.fromNamespaceAndPath(XibaoFlyClient.MOD_ID, "textures/particles/white_snow.png"),
+                    Identifier.fromNamespaceAndPath(XibaoCore.MOD_ID, "textures/particles/white_snow.png"),
             };
             default -> throw new NullPointerException("Cannot locate Particle!");
         };
@@ -194,8 +194,8 @@ public class XibaoDisconnectedScreen extends DisconnectedScreen {
                 "textures/backgrounds/" + FileBasedConfig.get("stage", "xibao") + ".png"
         );
         bgm = switch (FileBasedConfig.get("stage", "xibao")) {
-            case "beibao" -> XibaoFlyClient.beibao;
-            case "xibao" -> XibaoFlyClient.xibao;
+            case "beibao" -> XibaoCore.beibao;
+            case "xibao" -> XibaoCore.xibao;
             default -> throw new NullPointerException("Cannot get BGM!");
         };
         
@@ -207,11 +207,11 @@ public class XibaoDisconnectedScreen extends DisconnectedScreen {
         
         Identifier[] particleTextures = switch (FileBasedConfig.get("stage", "xibao")) {
             case "xibao" -> new Identifier[] {
-                    Identifier.fromNamespaceAndPath(XibaoFlyClient.MOD_ID, "textures/particles/red_snow.png"),
-                    Identifier.fromNamespaceAndPath(XibaoFlyClient.MOD_ID, "textures/particles/yellow_snow.png"),
+                    Identifier.fromNamespaceAndPath(XibaoCore.MOD_ID, "textures/particles/red_snow.png"),
+                    Identifier.fromNamespaceAndPath(XibaoCore.MOD_ID, "textures/particles/yellow_snow.png"),
             };
             case "beibao" -> new Identifier[] {
-                    Identifier.fromNamespaceAndPath(XibaoFlyClient.MOD_ID, "textures/particles/white_snow.png"),
+                    Identifier.fromNamespaceAndPath(XibaoCore.MOD_ID, "textures/particles/white_snow.png"),
             };
             default -> throw new NullPointerException("Cannot locate Particle!");
         };

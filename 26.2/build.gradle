@@ -1,0 +1,58 @@
+plugins {
+	id 'net.fabricmc.fabric-loom'
+}
+
+// The common project has to be configured before its output is bundled below.
+evaluationDependsOn(':common')
+
+def minecraftVersion = '26.2'
+def fabricApiVersion = '0.158.0+26.2'
+
+// Game versions this jar is known to work with. Keep in sync with fabric.mod.json.
+ext.compatibleGameVersions = ['26.2']
+
+base {
+	archivesName = "xibao-fly-${project.name}"
+}
+
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"xibao-fly" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
+	accessWidenerPath = file("src/client/resources/xibao-fly.accesswidener")
+}
+
+dependencies {
+	// To change the versions see the version project's build.gradle and the root gradle.properties
+	minecraft "com.mojang:minecraft:${minecraftVersion}"
+	implementation "net.fabricmc:fabric-loader:${loader_version}"
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	implementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
+
+	// The version-independent core: compiled once against 26.1.2 and bundled below.
+	implementation project(':common')
+}
+
+processResources {
+	inputs.property 'version', project.version
+
+	filesMatching('fabric.mod.json') {
+		expand 'version': project.version
+	}
+}
+
+// Bundle the common core classes and shared assets into the final mod jar.
+jar {
+	from(project(':common').sourceSets.main.output)
+}
+
+sourcesJar {
+	from(project(':common').sourceSets.main.allJava)
+}

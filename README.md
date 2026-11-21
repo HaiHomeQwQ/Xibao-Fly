@@ -38,17 +38,6 @@ Build per push available at [Actions Page](https://github.com/Yuang114514/Xibao-
 
 ### Download from Modrinth
 
-_Working rapidly, coming soon_
+_coming soon_
 
-~~i wanna f**k these modrinth moderators because they are too slow~~
-
-## Project layout
-
-- `common/` — the version-independent core: config, the replacement screen,
-  particles, sound registration and the shared assets. It is compiled against
-  Minecraft 26.1.2, the oldest supported version, so it cannot depend on APIs
-  that only exist in 26.2.
-- `26.1/`, `26.2/` — loader glue. Each carries the version-specific
-  `fabric.mod.json`, access widener, mixin config and screen-switch mixin
-  (`Gui#setScreen` on 26.2, `Minecraft#setScreen` on 26.1), and bundles the
-  common classes and assets into its own jar.
+~~How dare do these fucking moderators think it is AI generated~~

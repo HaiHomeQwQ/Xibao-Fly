@@ -2,7 +2,7 @@
 
 [[English]](https://github.com/Yuang114514/Xibao-Fly/blob/Fabric/README.md)[简体中文]
 
-直接把 [Xibao++](https://github.com/GregTaoo/Xibao-Plus-Plus) 移植到了 Fabric 26.2
+把 [Xibao++](https://github.com/GregTaoo/Xibao-Plus-Plus) 移植到了 Fabric 26.1 / 26.2。
 
 ## 特性
 
@@ -24,16 +24,17 @@
 
 ### 从源码构建
 
-看不懂就别想了，你不配
-1. Clone this repo or download the zip archive to your PC.
-2. At the root folder, run:
+1. Clone 本仓库或下载 zip 压缩包到本地。
+2. 在仓库根目录运行：
 ```bash
-./gradlew jar
+./gradlew build
 ```
-> Windows users should use `./gradlew.bat` instead.
-3. When the build task finished, find the artifact in `/build/libs`
-4. Copy the jar file in the folder to your modded Minecraft instance's `mods` folder.
-5. Start Minecraft and enjoy it!
+> Windows 用户请使用 `./gradlew.bat`。
+3. 构建完成后，按游戏版本选择 jar：
+   - Minecraft 26.1.x：`26.1/build/libs/xibao-fly-26.1-<version>.jar`
+   - Minecraft 26.2：`26.2/build/libs/xibao-fly-26.2-<version>.jar`
+4. 把选中的 jar 放进对应 Minecraft 实例的 `mods` 文件夹。
+5. 启动游戏。
 
 ### 从 Modrinth 下载
 

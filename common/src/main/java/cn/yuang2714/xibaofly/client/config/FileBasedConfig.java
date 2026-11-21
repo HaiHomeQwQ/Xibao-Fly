@@ -1,6 +1,6 @@
 package cn.yuang2714.xibaofly.client.config;
 
-import cn.yuang2714.xibaofly.client.XibaoFlyClient;
+import cn.yuang2714.xibaofly.client.XibaoCore;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.fabricmc.loader.api.FabricLoader;
@@ -37,7 +37,7 @@ public class FileBasedConfig {
             current.addProperty(key, value);
             write(current);
         } catch (Exception e) {
-            XibaoFlyClient.LOGGER.warn("write config failed.");
+            XibaoCore.LOGGER.warn("write config failed.");
         }
     }
     
@@ -45,7 +45,7 @@ public class FileBasedConfig {
         try {
             return read().get(key).getAsString();
         } catch (Exception e) {
-            XibaoFlyClient.LOGGER.warn("read config failed.");
+            XibaoCore.LOGGER.warn("read config failed.");
             return def;
         }
     }

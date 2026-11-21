@@ -1,0 +1,18 @@
+plugins {
+	id 'net.fabricmc.fabric-loom'
+}
+
+// The common core is compiled against the oldest supported game version (26.1.2)
+// so that it can only use APIs that exist across the whole 26.1 -> 26.2 range.
+// It has no loader metadata and is bundled into every version project's jar.
+def minecraftVersion = '26.1.2'
+
+dependencies {
+	minecraft "com.mojang:minecraft:${minecraftVersion}"
+	implementation "net.fabricmc:fabric-loader:${loader_version}"
+}
+
+// The assets are bundled into the version jars, not into the common sources jar.
+tasks.named('sourcesJar', Jar) {
+	exclude 'assets/**'
+}

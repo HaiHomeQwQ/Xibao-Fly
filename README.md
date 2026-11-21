@@ -2,7 +2,7 @@
 
 [English][[简体中文]](https://github.com/Yuang114514/Xibao-Fly/blob/Fabric/README_CN.md)
 
-26.2 port of [Xibao++](https://github.com/GregTaoo/Xibao-Plus-Plus).
+26.1 and 26.2 ports of [Xibao++](https://github.com/GregTaoo/Xibao-Plus-Plus).
 
 ## Features
 
@@ -27,11 +27,13 @@ Build per push available at [Actions Page](https://github.com/Yuang114514/Xibao-
 1. Clone this repo or download the zip archive to your PC.
 2. At the root folder, run:
 ```bash
-./gradlew jar
+./gradlew build
 ```
 > Windows users should use `./gradlew.bat` instead.
-3. When the build task finished, find the artifact in `/build/libs`
-4. Copy the jar file in the folder to your modded Minecraft instance's `mods` folder.
+3. When the build task finished, pick the jar for your game version:
+   - Minecraft 26.1.x: `26.1/build/libs/xibao-fly-26.1-<version>.jar`
+   - Minecraft 26.2: `26.2/build/libs/xibao-fly-26.2-<version>.jar`
+4. Copy that one jar to your modded Minecraft instance's `mods` folder.
 5. Start Minecraft and enjoy it!
 
 ### Download from Modrinth

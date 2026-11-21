@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "xibao-fly",
+	"version": "${version}",
+	"name": "Xibao Fly",
+	"description": "Fabric 26.1 port of Xibao++.",
+	"authors": [
+		"TeaCon",
+		"GregTao",
+		"Yuang2714"
+	],
+	"contact": {
+		"email": "若有侵权请发邮件到achilles.hero.way@outlook.com请求删除"
+	},
+	"license": "MIT",
+	"icon": "assets/xibao-fly/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"cn.yuang2714.xibaofly.client.XibaoFlyClient"
+		]
+	},
+	"mixins": [
+		{
+			"config": "xibao-fly.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"accessWidener": "xibao-fly.accesswidener"
+}
